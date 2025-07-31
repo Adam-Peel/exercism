@@ -23,6 +23,8 @@ export const convert = (input) => {
   //   return Error();
   // }
 
+  console.log(input.length);
+
   if (input.length === 15 && numbersArr.includes(input)) {
     return numbersArr.indexOf(input).toString();
   } else if (input.length === 15 && !numbersArr.includes(input)) {
@@ -30,9 +32,18 @@ export const convert = (input) => {
   }
 
   if (input.length > 15) {
+    let lines = 0;
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] === "\n") {
+        lines++;
+      }
+    }
+
+    console.log(lines);
+
     const array = [];
     let string = "";
-    const digits = (input.length - 3) / 12;
+    const digits = (input.length - lines) / 12;
     const digitsArray = new Array(digits).fill("");
 
     const rows = input.split("\n");
