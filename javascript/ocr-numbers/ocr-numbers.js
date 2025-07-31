@@ -19,9 +19,9 @@ const numbersArr = [
 ];
 
 export const convert = (input) => {
-  if ((input.length - 6) % 3 !== 0) {
-    return Error();
-  }
+  // if ((input.length - 6) % 3 !== 0) {
+  //   return Error();
+  // }
 
   if (input.length === 15 && numbersArr.includes(input)) {
     return numbersArr.indexOf(input).toString();
@@ -67,6 +67,8 @@ export const convert = (input) => {
       console.log(number);
       if (numbersArr.includes(number)) {
         returnString += numbersArr.indexOf(number).toString();
+      } else {
+        returnString += "?";
       }
     }
     return returnString;
